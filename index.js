@@ -3,6 +3,7 @@
 
 // 2. Сделайте кнопку, которая после первого нажатия на нее становится неактивной (disabled)
 
+//1.
 const imageDataBase = [
   "https://artguide.com/storage/post/1599/wide_detail_picture.jpg",
   "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Kuindzhi_by_I.Kramskoy_%281872%2C_GTG%29.jpg/280px-Kuindzhi_by_I.Kramskoy_%281872%2C_GTG%29.jpg",
@@ -14,7 +15,7 @@ let imageIndex = 0;
 srcAttr.value = imageDataBase[imageIndex];
 nextImage.setAttributeNode(srcAttr);
 
-changeImgBtn.addEventListener("click", () => {
+function handleChangeBtn() {
   if (imageIndex < imageDataBase.length - 1) {
     imageIndex++;
   } else {
@@ -22,4 +23,15 @@ changeImgBtn.addEventListener("click", () => {
   }
   srcAttr.value = imageDataBase[imageIndex];
   nextImage.setAttributeNode(srcAttr);
-});
+}
+
+changeImgBtn.addEventListener("click", handleChangeBtn);
+
+//2.
+const disabledAfterClick = document.getElementById('disabledAfterClick')
+
+function handleClickBtn(event) {
+    event.target.disabled = true
+}
+
+disabledAfterClick.addEventListener('click', handleClickBtn)
